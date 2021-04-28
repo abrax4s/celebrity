@@ -19,14 +19,16 @@ public class Celebrity {
 		Person celebrity = null;
 		for (int i = 0; i < people.size(); i++) {
 			int j = 0;
-			for (Person person : people) {
-				if (!people.get(i).knowsPerson(person)) {
-					j++;
-					if (j == people.size()) {
-						celebrity = people.get(i);
+			if (null == celebrity) {
+				for (Person person : people) {
+					if (!people.get(i).knowsPerson(person)) {
+						j++;
+						if (j == people.size()) {
+							celebrity = people.get(i);
+						}
+					} else {
+						continue;
 					}
-				} else {
-					continue;
 				}
 			}
 		}
