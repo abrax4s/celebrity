@@ -15,23 +15,20 @@ public class Celebrity {
 	 * @param people list of Person
 	 * @return Person who will be known as celebrity.
 	 */
-	public Person findCelebrity(List<Person> people) {
-		Person celebrity = null;
-		for (int i = 0; i < people.size(); i++) {
-			int j = 0;
-			if (null == celebrity) {
-				for (Person person : people) {
-					if (!people.get(i).knowsPerson(person)) {
-						j++;
-						if (j == people.size()) {
-							celebrity = people.get(i);
-						}
-					} else {
-						continue;
+	
+	public void findCelebrity(List<Person> people, boolean[][] acquaitances) {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+		people.stream().forEach(personA ->{
+			int counter= 0;
+			for(Person personB : people) {
+				if(!personA.knowsPerson(personB, acquaitances)) {
+					counter ++;
+					if(counter==people.size()) {
+						System.out.println("Celebrity is: "+personA.getId());
 					}
+				}else {
+					continue;
 				}
 			}
-		}
-		return celebrity;
+		});
 	}
 }

@@ -1,9 +1,23 @@
 package com.celebrity;
 
 public class Person {
-	public Boolean knowsPerson(Person person) {
+	private int id;
+	
+	public Boolean knowsPerson(Person person,boolean[][] acquaitances) {
 		Boolean res = null;
-		// code to determine whether this.person knows person
+		res = acquaitances[this.id][person.id];
 		return res;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Person(int id) {
+		super();
+		this.id = id;
+	}
+	
 }
